@@ -1,65 +1,68 @@
-/* #AussieScammers — white + peach, minimal, phone-first */
+/* A personal warning blog. White page, narrow column, Georgia headings
+   in a deep peach. Peach is used for headings and links only. */
 :root{
-  --peach:#b84a2b;          /* deep peach, readable on white */
-  --peach-soft:#ffd9c2;
-  --peach-pale:#fff3ea;
-  --ink:#2b2320;
-  --muted:#6b5d55;
-  --line:#f0d9cb;
-  --focus:#7a2d15;
+  --peach:#C96F4A;
+  --ink:#26211e;
+  --muted:#6f655e;
+  --line:#e7ddd4;
+  --field:#b9a89c;
 }
 *{box-sizing:border-box}
 html{font-size:100%}
 body{
   margin:0;background:#fff;color:var(--ink);
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  line-height:1.55;font-size:1.05rem;
+  font-family:Georgia,"Times New Roman",Times,serif;
+  line-height:1.65;font-size:1.06rem;
 }
-a{color:var(--peach);text-underline-offset:.15em}
+.wrap{max-width:40rem;margin:0 auto;padding:0 1.1rem}
+a{color:var(--peach);text-decoration:underline;text-underline-offset:.15em}
 a:focus-visible,button:focus-visible,input:focus-visible,
 textarea:focus-visible,select:focus-visible{
-  outline:3px solid var(--focus);outline-offset:2px;
+  outline:3px solid var(--peach);outline-offset:2px;
 }
-.wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
-header.site{border-bottom:1px solid var(--line);background:#fff}
-.site-name{font-weight:700;color:var(--peach);font-size:1.15rem;margin:.9rem 0 .2rem}
-.tag{color:var(--muted);font-size:.95rem;margin:0 0 .6rem}
-nav.main{padding:.4rem 0 .9rem}
-nav.main ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem .9rem}
-nav.main a{text-decoration:none;font-size:.98rem}
-nav.main a[aria-current="page"]{font-weight:700;text-decoration:underline}
-main{padding:1.2rem 0 2rem}
-h1,h2,h3{color:var(--peach);line-height:1.2;font-weight:700}
-h1{font-size:1.9rem;margin:.4rem 0 .8rem}
-h2{font-size:1.35rem;margin:1.6rem 0 .5rem}
-h3{font-size:1.12rem;margin:1.2rem 0 .4rem}
-p{margin:.55rem 0}
+
+/* Small plain blog header */
+header.site{border-bottom:1px solid var(--line);padding:1.1rem 0 .8rem}
+.site-name{font-size:1.3rem;font-weight:bold;color:var(--ink);margin:0 0 .15rem}
+.site-line{margin:0 0 .25rem}
+.site-meta{color:var(--muted);font-size:.92rem;margin:0 0 .7rem}
+nav.main{font-size:.98rem;line-height:1.9}
+nav.main a[aria-current="page"]{font-weight:bold}
+
+main{padding:1.4rem 0 .5rem}
+h1,h2,h3{color:var(--peach);line-height:1.25;font-weight:bold}
+h1{font-size:1.75rem;margin:.2rem 0 .6rem}
+h2{font-size:1.3rem;margin:1.7rem 0 .45rem}
+h3{font-size:1.1rem;margin:1.3rem 0 .35rem}
+p{margin:.6rem 0}
+ul,ol{margin:.5rem 0 .8rem;padding-left:1.4rem}
+li{margin:.3rem 0}
 .small{font-size:.92rem;color:var(--muted)}
-.notice{
-  background:var(--peach-pale);border:1px solid var(--peach-soft);
-  border-radius:.6rem;padding:.8rem 1rem;margin:1rem 0;font-size:.98rem;
-}
-.card{
-  border:1px solid var(--line);border-radius:.6rem;padding:1rem;margin:.8rem 0;background:#fff;
-}
-.card h3{margin-top:.2rem}
-.btn{
-  display:inline-block;background:var(--peach);color:#fff;text-decoration:none;
-  padding:.75rem 1.1rem;border-radius:.6rem;font-weight:700;margin:.3rem .3rem .3rem 0;border:0;cursor:pointer;font-size:1rem;
-}
-.btn.secondary{background:#fff;color:var(--peach);border:2px solid var(--peach)}
-.btn-row{margin:1rem 0}
-form label{display:block;font-weight:600;margin:.9rem 0 .3rem}
+.byline{color:var(--muted);font-size:.95rem;margin:.1rem 0 1rem}
+.intro-line{margin-bottom:1rem}
+.dated{list-style:none;padding-left:0}
+.dated li{margin:.85rem 0}
+.date{font-weight:bold}
+.details li{margin:.35rem 0}
+.note-end{font-style:italic;font-size:.93rem;color:var(--muted);margin-top:1.8rem}
+.filed{font-size:.95rem;color:var(--muted);margin-top:.4rem}
+
+/* Plain blog-style form */
+form{margin-top:1rem}
+form label{display:block;margin:.95rem 0 .3rem}
 form input[type="text"],form input[type="email"],form textarea,form select{
-  width:100%;padding:.7rem;border:1px solid #cbb8ad;border-radius:.5rem;font:inherit;background:#fff;
+  width:100%;padding:.55rem .6rem;border:1px solid var(--field);
+  border-radius:0;font:inherit;background:#fff;color:var(--ink);
 }
-form input[type="checkbox"]{width:1.2rem;height:1.2rem;vertical-align:-.2rem}
-.check{font-weight:400}
-.help{list-style:none;padding:0;margin:.8rem 0}
-.help li{margin:.6rem 0}
-footer.site{border-top:1px solid var(--line);margin-top:2rem;padding:1.2rem 0 2rem}
-.hashtag{font-weight:700;color:var(--peach)}
+form input[type="file"]{font:inherit}
+form input[type="checkbox"]{width:1.15rem;height:1.15rem;vertical-align:-.15rem}
+.check{display:inline;font-weight:normal}
+button{
+  font:inherit;background:#fff;color:var(--peach);
+  border:1px solid var(--peach);padding:.5rem 1.1rem;cursor:pointer;margin-top:.6rem;
+}
+
+footer.site{border-top:1px solid var(--line);margin-top:2.2rem;padding:1rem 0 2rem}
 @media (min-width:40rem){
-  h1{font-size:2.3rem}
-  body{font-size:1.1rem}
+  h1{font-size:2rem}
 }
