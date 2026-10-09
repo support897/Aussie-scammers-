@@ -1,0 +1,65 @@
+/* #AussieScammers — white + peach, minimal, phone-first */
+:root{
+  --peach:#b84a2b;          /* deep peach, readable on white */
+  --peach-soft:#ffd9c2;
+  --peach-pale:#fff3ea;
+  --ink:#2b2320;
+  --muted:#6b5d55;
+  --line:#f0d9cb;
+  --focus:#7a2d15;
+}
+*{box-sizing:border-box}
+html{font-size:100%}
+body{
+  margin:0;background:#fff;color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.55;font-size:1.05rem;
+}
+a{color:var(--peach);text-underline-offset:.15em}
+a:focus-visible,button:focus-visible,input:focus-visible,
+textarea:focus-visible,select:focus-visible{
+  outline:3px solid var(--focus);outline-offset:2px;
+}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
+header.site{border-bottom:1px solid var(--line);background:#fff}
+.site-name{font-weight:700;color:var(--peach);font-size:1.15rem;margin:.9rem 0 .2rem}
+.tag{color:var(--muted);font-size:.95rem;margin:0 0 .6rem}
+nav.main{padding:.4rem 0 .9rem}
+nav.main ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem .9rem}
+nav.main a{text-decoration:none;font-size:.98rem}
+nav.main a[aria-current="page"]{font-weight:700;text-decoration:underline}
+main{padding:1.2rem 0 2rem}
+h1,h2,h3{color:var(--peach);line-height:1.2;font-weight:700}
+h1{font-size:1.9rem;margin:.4rem 0 .8rem}
+h2{font-size:1.35rem;margin:1.6rem 0 .5rem}
+h3{font-size:1.12rem;margin:1.2rem 0 .4rem}
+p{margin:.55rem 0}
+.small{font-size:.92rem;color:var(--muted)}
+.notice{
+  background:var(--peach-pale);border:1px solid var(--peach-soft);
+  border-radius:.6rem;padding:.8rem 1rem;margin:1rem 0;font-size:.98rem;
+}
+.card{
+  border:1px solid var(--line);border-radius:.6rem;padding:1rem;margin:.8rem 0;background:#fff;
+}
+.card h3{margin-top:.2rem}
+.btn{
+  display:inline-block;background:var(--peach);color:#fff;text-decoration:none;
+  padding:.75rem 1.1rem;border-radius:.6rem;font-weight:700;margin:.3rem .3rem .3rem 0;border:0;cursor:pointer;font-size:1rem;
+}
+.btn.secondary{background:#fff;color:var(--peach);border:2px solid var(--peach)}
+.btn-row{margin:1rem 0}
+form label{display:block;font-weight:600;margin:.9rem 0 .3rem}
+form input[type="text"],form input[type="email"],form textarea,form select{
+  width:100%;padding:.7rem;border:1px solid #cbb8ad;border-radius:.5rem;font:inherit;background:#fff;
+}
+form input[type="checkbox"]{width:1.2rem;height:1.2rem;vertical-align:-.2rem}
+.check{font-weight:400}
+.help{list-style:none;padding:0;margin:.8rem 0}
+.help li{margin:.6rem 0}
+footer.site{border-top:1px solid var(--line);margin-top:2rem;padding:1.2rem 0 2rem}
+.hashtag{font-weight:700;color:var(--peach)}
+@media (min-width:40rem){
+  h1{font-size:2.3rem}
+  body{font-size:1.1rem}
+}
