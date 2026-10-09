@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Share Your Story — Were You Scammed Too? | #AussieScammers</title>
+<meta name="description" content="Share your own reported experience about Valeria Hacket (Hackett), Joshua Hacket, or another reported scam in Australia. Stories are checked by a person first — nothing is posted automatically. You can stay anonymous.">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Share Your Story — Were You Scammed Too?">
+<meta property="og:description" content="Tell your story in simple words. Checked by a person before anything goes live. Anonymous is fine. #AussieScammers">
+<meta property="og:url" content="https://aussie-scammers.vercel.app/share-your-story.html">
+  <link rel="canonical" href="https://aussie-scammers.vercel.app/share-your-story.html">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <p class="site-name">#AussieScammers</p>
+    <p class="tag">Real people. Their own reported stories.</p>
+    <nav class="main" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="names.html">Names &amp; profiles</a></li>
+        <li><a href="case-1.html">Story 1</a></li>
+        <li><a href="case-2.html">Story 2</a></li>
+        <li><a href="case-3.html">Story 3</a></li>
+        <li><a href="case-4.html">Story 4</a></li>
+        <li><a href="share-your-story.html" aria-current="page">Share your story</a></li>
+        <li><a href="other-stories.html">Other stories</a></li>
+        <li><a href="right-of-reply.html">Right of reply</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Were you scammed too? Share your story</h1>
+  <p>Your story can protect the next person. Keep it simple. Say what happened, in your own words.</p>
+
+  <div class="notice" role="note">
+    <strong>How this works:</strong> Your story does <strong>not</strong> go live on its own. A person reads every story first. They take out private details, check the words, and only then does a story go up. You can choose to stay anonymous.
+  </div>
+  <div class="notice" role="note">
+    <strong>Please read this first:</strong> Stories shared here are personal reports. A story is what one person says happened to them. Stories are not court findings.
+  </div>
+
+  <!-- Front-end only: this form is not wired to a server yet. It does not send or store anything. -->
+  <form id="story-form" action="#" method="post" enctype="multipart/form-data">
+    <label for="about">Who is your story about?</label>
+    <select id="about" name="about">
+      <option value="these-names">Valeria Hacket (Hackett) or Joshua Hacket (Hackett)</option>
+      <option value="other">Someone else — it will go in the separate Other Stories section</option>
+    </select>
+
+    <label for="story">Your story</label>
+    <textarea id="story" name="story" rows="8" required placeholder="What happened? When? What did you lose?"></textarea>
+
+    <label for="when">When did it happen? (month and year is enough)</label>
+    <input type="text" id="when" name="when" autocomplete="off">
+
+    <label for="images">Add images or screenshots (optional)</label>
+    <input type="file" id="images" name="images" accept="image/*" multiple>
+    <p class="small">Please cover phone numbers, addresses, and bank details in your images before you add them.</p>
+
+    <p>
+      <input type="checkbox" id="anonymous" name="anonymous">
+      <label class="check" for="anonymous">Keep me anonymous — do not show my name</label>
+    </p>
+
+    <label for="display-name">Name to show (leave empty if you picked anonymous)</label>
+    <input type="text" id="display-name" name="display-name" autocomplete="name">
+
+    <label for="contact">Your email (private — only used to check your story with you, never shown)</label>
+    <input type="email" id="contact" name="contact" autocomplete="email">
+
+    <p>
+      <input type="checkbox" id="truth" name="truth" required>
+      <label class="check" for="truth">This is my own experience, told as honestly as I can.</label>
+    </p>
+
+    <div class="btn-row">
+      <button class="btn" type="submit">Send my story for checking</button>
+    </div>
+    <p class="small" id="form-note">This form is not live yet. Sending is switched off until the site is connected, so nothing you type here is sent or saved. This note will be removed when the form goes live.</p>
+  </form>
+
+  <h2>Too hard to write it all?</h2>
+  <p>Short is fine. Three or four honest sentences help more than silence.</p>
+  <p>You can also <a href="https://www.scamwatch.gov.au/report-a-scam">report a scam to Scamwatch</a> at any time.</p>
+  <p class="hashtag">#AussieScammers</p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="hashtag">#AussieScammers</p>
+    <p class="small">Stories on this site are personal reports, not court findings. Names are shown as they were reported. If a story is about you, you can answer it on the <a href="right-of-reply.html">right of reply page</a>.</p>
+  </div>
+</footer>
+<script>
+document.getElementById('story-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('form-note').textContent =
+    'Thank you. This form is not live yet, so your story was not sent or saved. Please come back once the site is live.';
+});
+</script>
+</body>
+</html>
