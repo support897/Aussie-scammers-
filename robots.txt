@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aussie-scammers.vercel.app/sitemap.xml
