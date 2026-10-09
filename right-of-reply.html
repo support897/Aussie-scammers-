@@ -13,11 +13,15 @@
 <link rel="canonical" href="https://aussie-scammers.vercel.app/right-of-reply.html">
 </head>
 <body>
-<header class="site">
-  <div class="wrap">
+<div id="progress" aria-hidden="true"></div>
+<header class="site" id="top">
+  <div class="wrap site-bar">
+    <div class="site-id">
     <p class="site-name">Reported stories</p>
     <p class="site-line">Personal reports about Valeria Hacket (also written Hackett) and Joshua Hacket, put in one place by the person they were sent to.</p>
     <p class="site-meta">Started by Ilse, Gold Coast · Last updated 9 October 2026</p>
+    </div>
+    <p class="site-tag">#AussieScammers</p>
   </div>
 </header>
 
@@ -106,6 +110,7 @@
       <li><a href="https://www.cyber.gov.au/report-and-recover/report">Report to ReportCyber</a></li>
     </ul>
     <p>If you are in danger, call 000.</p>
+    <p class="side-top"><a href="#top">Back to top ↑</a></p>
   </aside>
 </div>
 
@@ -121,5 +126,6 @@ document.getElementById('reply-form').addEventListener('submit', function (e) {
     'Thank you. This form is not live yet, so your message was not sent or saved. Please come back once the site is live.';
 });
 </script>
+<script src="site.js" defer></script>
 </body>
 </html>
