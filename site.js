@@ -88,3 +88,20 @@
     });
   });
 })();
+
+  /* Collapsible sidebar: Menu button folds it away / brings it back.
+     Starts open; remembers the choice on this device while browsing. */
+  var toggle = document.getElementById("menuToggle");
+  if (toggle) {
+    try {
+      if (window.localStorage.getItem("sideClosed") === "1") {
+        document.body.classList.add("side-closed");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    } catch (e) {}
+    toggle.addEventListener("click", function () {
+      var closed = document.body.classList.toggle("side-closed");
+      toggle.setAttribute("aria-expanded", closed ? "false" : "true");
+      try { window.localStorage.setItem("sideClosed", closed ? "1" : "0"); } catch (e) {}
+    });
+  }
