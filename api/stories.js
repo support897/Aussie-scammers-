@@ -17,7 +17,7 @@ async function readWall(file) {
     const { blobs } = await list({ prefix: file, limit: 1 });
     const hit = blobs.find(b => b.pathname === file);
     if (!hit) return [];
-    const r = await fetch(hit.url);
+    const r = await fetch(hit.url, { headers: { Authorization: 'Bearer ' + process.env.BLOB_READ_WRITE_TOKEN } });
     if (!r.ok) return [];
     const data = await r.json();
     return Array.isArray(data) ? data : [];
@@ -28,7 +28,7 @@ async function readWall(file) {
 
 async function writeWall(file, stories) {
   await put(file, JSON.stringify(stories), {
-    access: 'public',
+    access: 'private',
     contentType: 'application/json',
     addRandomSuffix: false,
     cacheControlMaxAge: 0
@@ -66,8 +66,8 @@ export default async function handler(req, res) {
       const buf = Buffer.from(m[2], 'base64');
       if (buf.length > MAX_IMAGE_BYTES) return res.status(400).json({ error: 'That photo is too big. Please try a smaller one.' });
       const ext = m[1] === 'jpeg' ? 'jpg' : m[1];
-      const up = await put('walls/uploads/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.' + ext, buf, { access: 'public', contentType: 'image/' + m[1], addRandomSuffix: false });
-      imageUrl = up.url;
+      const up = await put('walls/uploads/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.' + ext, buf, { access: 'private', contentType: 'image/' + m[1], addRandomSuffix: false });
+      imageUrl = up.pathname;
     }
     const story = {
       id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
