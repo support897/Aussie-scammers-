@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     const r = await fetch(hit.url, { headers: { Authorization: 'Bearer ' + process.env.BLOB_READ_WRITE_TOKEN } });
     const stories = await r.json();
     const kept = (Array.isArray(stories) ? stories : []).filter(s => s.id !== body.id);
-    await put(file, JSON.stringify(kept), { access: 'private', contentType: 'application/json', addRandomSuffix: false, cacheControlMaxAge: 0 });
+    await put(file, JSON.stringify(kept), { access: 'private', contentType: 'application/json', addRandomSuffix: false, allowOverwrite: true, cacheControlMaxAge: 0 });
     return res.status(200).json({ ok: true, removed: stories.length - kept.length });
   } catch (e) {
     return res.status(500).json({ error: 'Could not remove the story.' });
