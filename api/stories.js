@@ -31,6 +31,7 @@ async function writeWall(file, stories) {
     access: 'private',
     contentType: 'application/json',
     addRandomSuffix: false,
+    allowOverwrite: true,
     cacheControlMaxAge: 0
   });
 }
