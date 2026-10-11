@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Share Your Story — Were You Scammed Too? | Valeria Hacket (Hackett) and Joshua Hacket | #AussieScammers</title>
-<meta name="description" content="Share your own reported experience about Valeria Hacket (Hackett), Joshua Hacket, or another reported scam in Australia. Stories are checked by a person first — nothing is posted automatically. You can stay anonymous.">
+<title>Share Your Story: Were You Scammed Too? | Valeria Hacket (Hackett) and Joshua Hacket | #AussieScammers</title>
+<meta name="description" content="Were you scammed by Valeria and Joshua? Share your story. It goes up straight away, and you can stay anonymous.">
 <link rel="stylesheet" href="styles.css">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Share Your Story — Were You Scammed Too?">
-<meta property="og:description" content="Tell your story in simple words. Checked by a person before anything goes live. Anonymous is fine. #AussieScammers">
+<meta property="og:title" content="Share Your Story: Were You Scammed Too?">
+<meta property="og:description" content="Were you scammed by Valeria and Joshua? Share your story. It goes up straight away, and you can stay anonymous.">
 <meta property="og:url" content="https://aussie-scammers.vercel.app/share-your-story.html">
 <link rel="canonical" href="https://aussie-scammers.vercel.app/share-your-story.html">
 </head>
@@ -18,64 +18,70 @@
   <div class="wrap site-bar">
     <div class="site-id">
     <p class="site-name">Reported stories</p>
-    <p class="site-line">Personal reports about Valeria Hacket (also written Hackett) and Joshua Hacket, collected in one place so the next person can check first.</p>
+    <p class="site-line">Stories and warnings about Valeria Hacket (also written Hackett) and Joshua Hacket, in one place so you can check before you trust them.</p>
     <p class="site-meta">An anonymous blog · Australia · Last updated 11 October 2026</p>
     </div>
     <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="true" aria-controls="sidebar">☰ Menu</button>
     <p class="site-tag">#AussieScammers</p>
   </div>
 </header>
+<div class="share-banner" id="shareBanner">
+  <div class="wrap">
+    <p>Were you scammed by Valeria and Joshua? You are not alone, and it was not your fault. Your story can protect the next person.</p>
+    <a class="banner-link" href="share-your-story.html">Share your story</a>
+    <a class="banner-alt" href="other-stories.html">Scammed by someone else?</a>
+    <button type="button" class="banner-close" id="bannerClose" aria-label="Close this message">✕</button>
+  </div>
+</div>
 
 <div class="layout">
 <main>
   <h1>Were you scammed too? Share your story</h1>
 
-  <p>Your story can protect the next person. Keep it simple. Say what happened, in your own words.</p>
-  <p>How this works: your story does <strong>not</strong> go live on its own. A person reads every story first. They take out private details, check the words, and only then does a story go up. Nothing is posted automatically. You can choose to stay anonymous.</p>
-  <p>Stories shared here are personal reports. A story is what one person says happened to them. Stories are not court findings.</p>
+  <p>Your story can protect the next person. If Valeria or Joshua did this to you too, you are not alone, and it was not your fault. Keep it simple. Say what happened, in your own words.</p>
+  <p>How this works: your story goes up <strong>straight away</strong>, on the wall below, in this page's colours and words just as you wrote them. You can add a photo or a screenshot if you have one. You can show your name, or stay anonymous. Please cover phone numbers, addresses and bank details in photos before you add them.</p>
 
-  <!-- Front-end only: this form is not wired to a server yet. It does not send or store anything. -->
-  <form id="story-form" action="#" method="post" enctype="multipart/form-data">
-    <label for="about">Who is your story about?</label>
-    <select id="about" name="about">
-      <option value="these-names">Valeria Hacket (Hackett) or Joshua Hacket (Hackett)</option>
-      <option value="other">Someone else — it will go in the separate Other Stories section</option>
-    </select>
-
+  <form id="story-form" data-wall-form="hackett" action="#" method="post">
     <label for="story">Your story</label>
-    <textarea id="story" name="story" rows="8" required placeholder="What happened? When? What did you lose?"></textarea>
+    <textarea id="story" name="text" rows="8" required placeholder="What happened? When? What did you lose?"></textarea>
 
     <label for="when">When did it happen? (month and year is enough)</label>
-    <input type="text" id="when" name="when" autocomplete="off">
+    <input type="text" id="when" name="whenText" autocomplete="off">
 
-    <label for="images">Add images or screenshots (optional)</label>
-    <input type="file" id="images" name="images" accept="image/*" multiple>
-    <p class="small">Please cover phone numbers, addresses, and bank details in your images before you add them.</p>
+    <label for="photo">Add a photo or screenshot (optional)</label>
+    <input type="file" id="photo" name="photo" accept="image/*">
+    <p class="small">Please cover phone numbers, addresses, and bank details in your photo before you add it.</p>
 
     <p>
       <input type="checkbox" id="anonymous" name="anonymous">
-      <label class="check" for="anonymous">Keep me anonymous — do not show my name</label>
+      <label class="check" for="anonymous">Keep me anonymous: do not show my name</label>
     </p>
 
     <label for="display-name">Name to show (leave empty if you picked anonymous)</label>
-    <input type="text" id="display-name" name="display-name" autocomplete="name">
+    <input type="text" id="display-name" name="name" autocomplete="name">
 
-    <label for="contact">Your email (private — only used to check your story with you, never shown)</label>
-    <input type="email" id="contact" name="contact" autocomplete="email">
+    <p class="hp" aria-hidden="true">
+      <label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </p>
 
     <p>
       <input type="checkbox" id="truth" name="truth" required>
       <label class="check" for="truth">This is my own experience, told as honestly as I can.</label>
     </p>
 
-    <button type="submit">Send my story for checking</button>
-    <p class="small" id="form-note">This form is not live yet. Sending is switched off until the site is connected, so nothing you type here is sent or saved. This note will be removed when the form goes live.</p>
+    <button type="submit">Put my story up</button>
+    <p class="form-note" aria-live="polite"></p>
   </form>
 
   <h2>Too hard to write it all?</h2>
-  <p>Short is fine. Three or four honest sentences help more than silence.</p>
-  <p>You can also <a href="https://www.scamwatch.gov.au/report-a-scam">report a scam to Scamwatch</a> at any time.</p>
+  <p>Short is fine. Three or four honest sentences help more than silence. You can also <a href="https://www.scamwatch.gov.au/report-a-scam">report a scam to Scamwatch</a> at any time.</p>
+  <p>Scammed by someone else, not Valeria and Joshua? There is a <a href="other-stories.html">separate wall for other Aussie scammers</a>. The two walls are never mixed.</p>
 
+  <section class="wall" data-wall="hackett">
+    <h2>Stories shared about Valeria and Joshua</h2>
+    <p>These stories were written by readers and went up as they were written.</p>
+    <div class="wall-list"></div>
+  </section>
   <p class="filed">Filed under: #AussieScammers</p>
 </main>
 
@@ -90,14 +96,14 @@
     </ul>
 
     <h2>The stories</h2>
-        <ul class="side-list">
-      <li><a href="case-1.html">Story 1 — The pay that stopped — Ilse's Airbnb and baby-care work</a></li>
-      <li><a href="case-2.html">Story 2 — The bank card in Norway — a fraud report from 2020</a></li>
-      <li><a href="case-3.html">Story 3 — The mattress that was never paid for — a seller's story from Mexico</a></li>
-      <li><a href="case-4.html">Story 4 — Cancelled hours before arrival — a guest's Airbnb stay</a></li>
-      <li><a href="case-5.html">Story 5 — The rent, the receipt and the locksmith day — an apartment report</a></li>
-      <li><a href="case-6.html">Story 6 — A puppy, a payment that failed — a breeder's story</a></li>
-      <li><a href="case-7.html">Story 7 — The deposit that never came back — an Airbnb guest's story</a></li>
+            <ul class="side-list">
+      <li><a href="case-1.html">Story 1: The pay that stopped: Ilse's Airbnb and baby care work</a></li>
+      <li><a href="case-2.html">Story 2: The bank card in Norway: a fraud report from 2020</a></li>
+      <li><a href="case-3.html">Story 3: The mattress that was never paid for: a seller's story from Mexico</a></li>
+      <li><a href="case-4.html">Story 4: Cancelled hours before arrival: a guest's Airbnb stay</a></li>
+      <li><a href="case-5.html">Story 5: The rent, the receipt and the locksmith day: an apartment report</a></li>
+      <li><a href="case-6.html">Story 6: A puppy, a payment that failed: a breeder's story</a></li>
+      <li><a href="case-7.html">Story 7: The deposit that never came back: an Airbnb guest's story</a></li>
     </ul>
 
         <h2>Known names</h2>
@@ -117,7 +123,7 @@
     <p><a href="names.html">All the names and profiles</a></p>
 
     <h2>About this blog</h2>
-    <p>An anonymous blog collecting stories people in Australia have shared, so the next person can check first. Stories are personal reports, not court findings.</p>
+    <p>An anonymous blog collecting the stories people have shared about Valeria and Joshua Hackett, so the next person can check first.</p>
 
     <h2>Need help?</h2>
     <ul class="side-list">
@@ -131,16 +137,10 @@
 
 <footer class="site">
   <div class="wrap">
-    <p class="small">An anonymous blog. Stories here are personal reports, not court findings. If a story is about you, you can answer it on the <a href="right-of-reply.html">right of reply</a> page.</p>
+    <p class="small">An anonymous blog, written to warn people. If a story is about you, you can answer it on the <a href="right-of-reply.html">right of reply</a> page.</p>
   </div>
 </footer>
-<script>
-document.getElementById('story-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  document.getElementById('form-note').textContent =
-    'Thank you. This form is not live yet, so your story was not sent or saved. Please come back once the site is live.';
-});
-</script>
 <script src="site.js" defer></script>
+<script src="wall.js" defer></script>
 </body>
 </html>
