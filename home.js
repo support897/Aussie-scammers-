@@ -82,3 +82,33 @@
     });
   }
 })();
+
+  /* View more: the second half of each home story opens in place */
+  document.querySelectorAll('.story-full .story-body').forEach(function (body) {
+    var blocks = Array.prototype.slice.call(body.children);
+    if (blocks.length < 5) return;
+    var weights = blocks.map(function (b) {
+      return b.tagName === 'FIGURE' ? 400 : Math.max(60, (b.textContent || '').trim().length);
+    });
+    var total = weights.reduce(function (a, b) { return a + b; }, 0);
+    var acc = 0, split = -1;
+    for (var i = 0; i < blocks.length; i++) {
+      acc += weights[i];
+      if (acc >= total / 2) { split = i + 1; break; }
+    }
+    if (split < 2 || split >= blocks.length) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'more-wrap';
+    wrap.hidden = true;
+    blocks.slice(split).forEach(function (b) { wrap.appendChild(b); });
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'more-btn';
+    btn.textContent = 'View more';
+    btn.addEventListener('click', function () {
+      wrap.hidden = false;
+      btn.remove();
+    });
+    body.appendChild(btn);
+    body.appendChild(wrap);
+  });
