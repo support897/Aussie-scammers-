@@ -1,19 +1,16 @@
 // "Same happened to me" taps: one quiet count per story.
 // GET  /api/me-too            -> {counts: {"story-1": 3, ...}}
 // POST /api/me-too {story}    -> increments and returns the new count
-import { put, list } from '@vercel/blob';
+import { put, get } from '@vercel/blob';
 
 const FILE = 'walls/me-too.json';
 const STORIES = ['story-1', 'story-2', 'story-3', 'story-4', 'story-5', 'story-6', 'story-7'];
 
 async function readCounts() {
   try {
-    const { blobs } = await list({ prefix: FILE, limit: 1 });
-    const hit = blobs.find(b => b.pathname === FILE);
-    if (!hit) return {};
-    const r = await fetch(hit.url, { headers: { Authorization: 'Bearer ' + process.env.BLOB_READ_WRITE_TOKEN } });
-    if (!r.ok) return {};
-    const data = await r.json();
+    const res = await get(FILE, { access: 'private', useCache: false });
+    if (!res) return {};
+    const data = JSON.parse(await new Response(res.stream).text());
     return data && typeof data === 'object' ? data : {};
   } catch (e) {
     return {};
