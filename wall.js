@@ -27,7 +27,7 @@
     if (s.image) {
       var fig = el('figure', 'photo');
       var img = document.createElement('img');
-      img.src = s.image;
+      img.src = (s.image.indexOf('http') === 0 || s.image.indexOf('data:') === 0) ? s.image : '/api/image?path=' + encodeURIComponent(s.image);
       img.alt = 'Photo shared with this story';
       img.loading = 'lazy';
       fig.appendChild(img);
