@@ -277,18 +277,6 @@ body.side-closed main{margin-left:auto;margin-right:auto}
   padding:.6rem 1.1rem;font-weight:bold;text-decoration:none;
 }
 .cta-link:hover{background:var(--peach-tint)}
-.quiz-q{margin:1.5rem 0}
-.quiz-q>p{font-weight:bold}
-.quiz-opts{display:grid;gap:.5rem}
-.quiz-opt{
-  text-align:left;margin:0;padding:.6rem .8rem;min-height:44px;
-  border:1px solid var(--field);background:#fff;font:inherit;cursor:pointer;
-}
-.quiz-opt.right{border-color:var(--peach);background:var(--peach-tint);font-weight:bold}
-.quiz-opt.wrong{opacity:.55;text-decoration:line-through}
-.quiz-why{display:none;margin:.55rem 0 0;color:var(--peach-dark)}
-.quiz-why.show{display:block}
-#quizScore{font-weight:bold}
 
 /* Full stories on the home page */
 .toc{list-style:none;padding-left:0}
