@@ -1,0 +1,84 @@
+// Home page extras: the counting numbers and the red flag game.
+(function () {
+  "use strict";
+
+  function fmt(v, kind) {
+    if (kind === 'money') return '$' + v.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return Math.round(v).toLocaleString('en-AU');
+  }
+
+  function countUp(elm) {
+    var target = parseFloat(elm.getAttribute('data-count'));
+    var kind = elm.getAttribute('data-kind') || '';
+    if (isNaN(target)) return;
+    var start = null;
+    var dur = 1500;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min(1, (ts - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      elm.textContent = fmt(target * eased, kind);
+      if (p < 1) requestAnimationFrame(step);
+      else elm.textContent = fmt(target, kind);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var statsSeen = false;
+  function maybeCount() {
+    var stats = document.querySelector('.stats');
+    if (!stats || statsSeen) return;
+    var r = stats.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) {
+      statsSeen = true;
+      stats.querySelectorAll('[data-count]').forEach(countUp);
+    }
+  }
+  window.addEventListener('scroll', maybeCount, { passive: true });
+
+  // The stories number grows with the live walls
+  var storyNum = document.getElementById('statStories');
+  if (storyNum) {
+    var base = 7;
+    Promise.all([
+      fetch('/api/stories?category=hackett').then(function (r) { return r.json(); }).catch(function () { return {}; }),
+      fetch('/api/stories?category=other').then(function (r) { return r.json(); }).catch(function () { return {}; })
+    ]).then(function (res) {
+      var extra = 0;
+      res.forEach(function (d) { if (d && Array.isArray(d.stories)) extra += d.stories.length; });
+      storyNum.setAttribute('data-count', String(base + extra));
+      maybeCount();
+    });
+  }
+  maybeCount();
+
+  // The red flag game
+  var quiz = document.getElementById('quiz');
+  if (quiz) {
+    var total = quiz.querySelectorAll('.quiz-q').length;
+    var answered = 0;
+    var score = 0;
+    var scoreLine = document.getElementById('quizScore');
+    var finalLine = document.getElementById('quizFinal');
+    quiz.querySelectorAll('.quiz-q').forEach(function (q) {
+      var why = q.querySelector('.quiz-why');
+      q.querySelectorAll('.quiz-opt').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (q.getAttribute('data-done')) return;
+          q.setAttribute('data-done', '1');
+          var right = btn.getAttribute('data-right') === '1';
+          btn.classList.add(right ? 'right' : 'wrong');
+          if (right) score++;
+          answered++;
+          q.querySelectorAll('.quiz-opt').forEach(function (b) { b.disabled = true; });
+          if (why) why.classList.add('show');
+          if (scoreLine) scoreLine.textContent = 'You spotted ' + score + ' of ' + total + ' red flags so far.';
+          if (answered === total && finalLine) {
+            finalLine.hidden = false;
+            finalLine.querySelector('strong').textContent = 'You spotted ' + score + ' of ' + total + ' red flags.';
+          }
+        });
+      });
+    });
+  }
+})();
