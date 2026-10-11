@@ -9,7 +9,7 @@
   --muted:#6f655e;
   --line:#e7ddd4;
   --field:#b9a89c;
-  --side-top:7.6rem;
+  --side-top:.8rem;
 }
 *{box-sizing:border-box}
 html{font-size:100%;scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -32,15 +32,15 @@ textarea:focus-visible,select:focus-visible,summary:focus-visible{
 
 /* Reading progress: a slim deep-peach line at the very top */
 #progress{
-  position:fixed;top:0;left:0;height:3px;width:0;
+  position:absolute;top:0;left:0;height:3px;width:0;
   background:var(--peach);z-index:120;
 }
 
-/* Sticky top header bar: site name left, hashtag right */
+/* Top header bar: site name left, hashtag right.
+   It scrolls away with the page; it is NOT fixed or sticky. */
 header.site{
-  position:sticky;top:0;z-index:90;background:#fff;
+  background:#fff;
   border-bottom:1px solid var(--line);
-  box-shadow:0 1px 8px rgba(38,33,30,.06);
   padding:.8rem 0 .7rem;
 }
 .site-bar{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
@@ -166,7 +166,6 @@ footer.site .small{max-width:40rem}
 
 /* Mid widths: a slimmer sidebar, still on the side */
 @media (max-width:56rem){
-  :root{--side-top:8.6rem}
   .layout{gap:1.4rem}
   .sidebar{flex-basis:12.5rem;padding:1rem .8rem}
 }
@@ -174,7 +173,6 @@ footer.site .small{max-width:40rem}
 /* Phones: the sidebar gets narrow and its text smaller,
    but it stays on the side — it never stacks above the stories */
 @media (max-width:40rem){
-  :root{--side-top:10.5rem}
   .layout{gap:.85rem;padding:0 .6rem}
   .sidebar{
     flex-basis:9.2rem;font-size:.82rem;line-height:1.5;
@@ -189,7 +187,6 @@ footer.site .small{max-width:40rem}
 
 /* Very small phones: an even narrower sidebar, still on the side */
 @media (max-width:24rem){
-  :root{--side-top:11.5rem}
   .layout{gap:.6rem;padding:0 .4rem}
   .sidebar{flex-basis:7.6rem;font-size:.76rem;padding:.7rem .45rem}
   .sidebar h2{font-size:.72rem}
@@ -201,9 +198,11 @@ footer.site .small{max-width:40rem}
 /* Collapsible sidebar: the Menu button in the top bar folds the
    sidebar away and brings it back. It starts open on every page. */
 .menu-toggle{
+  position:fixed;left:.7rem;bottom:.9rem;z-index:95;
   font:inherit;font-size:.95rem;cursor:pointer;
   background:#fff;color:var(--peach);
   border:1px solid var(--peach);border-radius:8px;
+  box-shadow:0 2px 10px rgba(38,33,30,.18);
   padding:.45rem .9rem;min-height:44px;white-space:nowrap;
 }
 .menu-toggle:hover{background:var(--peach-tint)}
