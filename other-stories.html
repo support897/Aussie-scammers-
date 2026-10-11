@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Other Stories — Other Reported Scams in Australia | Valeria Hacket (Hackett) and Joshua Hacket | #AussieScammers</title>
-<meta name="description" content="A separate section for personal reports about other people in Australia — not Valeria Hacket (Hackett) or Joshua Hacket. No stories published here yet. Personal reports, not court findings.">
+<title>Other Stories: Other Scams in Australia | Valeria Hacket (Hackett) and Joshua Hacket | #AussieScammers</title>
+<meta name="description" content="Stories about other people in Australia go in this separate section, never mixed with the stories about Valeria and Joshua Hackett.">
 <link rel="stylesheet" href="styles.css">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Other Stories — Other Reported Scams in Australia">
-<meta property="og:description" content="A separate home for other reported stories, kept apart from the main stories. #AussieScammers">
+<meta property="og:title" content="Other Stories: Other Scams in Australia">
+<meta property="og:description" content="Stories about other people in Australia go in this separate section, never mixed with the stories about Valeria and Joshua Hackett.">
 <meta property="og:url" content="https://aussie-scammers.vercel.app/other-stories.html">
 <link rel="canonical" href="https://aussie-scammers.vercel.app/other-stories.html">
 </head>
@@ -18,30 +18,69 @@
   <div class="wrap site-bar">
     <div class="site-id">
     <p class="site-name">Reported stories</p>
-    <p class="site-line">Personal reports about Valeria Hacket (also written Hackett) and Joshua Hacket, collected in one place so the next person can check first.</p>
+    <p class="site-line">Stories and warnings about Valeria Hacket (also written Hackett) and Joshua Hacket, in one place so you can check before you trust them.</p>
     <p class="site-meta">An anonymous blog · Australia · Last updated 11 October 2026</p>
     </div>
     <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="true" aria-controls="sidebar">☰ Menu</button>
     <p class="site-tag">#AussieScammers</p>
   </div>
 </header>
+<div class="share-banner" id="shareBanner">
+  <div class="wrap">
+    <p>Were you scammed by Valeria and Joshua? You are not alone, and it was not your fault. Your story can protect the next person.</p>
+    <a class="banner-link" href="share-your-story.html">Share your story</a>
+    <a class="banner-alt" href="other-stories.html">Scammed by someone else?</a>
+    <button type="button" class="banner-close" id="bannerClose" aria-label="Close this message">✕</button>
+  </div>
+</div>
 
 <div class="layout">
 <main>
-  <h1>Other stories</h1>
+  <h1>Other Aussie scammers</h1>
 
-  <p>This is a separate section. It is for personal reports about <strong>other people</strong> in Australia — not the people named in Stories 1 to 5.</p>
-  <p>The two groups of stories are never mixed. A story about someone else will never be added to the main stories, and the main stories will never be added here.</p>
-  <p>Like everything on this site, a story here would be a personal report — what one person says happened to them. Stories are not court findings, and nothing here is a proven finding about any person.</p>
+  <p>This is the separate wall for stories about <strong>other people</strong> in Australia, not Valeria and Joshua Hackett. The two walls are never mixed. A story about someone else never goes on their wall, and their stories never go here.</p>
+  <p>If someone scammed you, telling it here can protect the next person. Say who they are and what happened, in your own words. Your story goes up <strong>straight away</strong>, on the wall below. You can add a photo, and you can stay anonymous.</p>
 
-  <h2>No stories here yet</h2>
-  <p>There are no published stories in this section yet. That is the honest state of it.</p>
-  <p>When a story about someone else is shared, a person checks it first — the same check as every story on this site. Nothing is posted automatically.</p>
+  <form id="other-form" data-wall-form="other" action="#" method="post">
+    <label for="scammer">Who scammed you? (their name or business name)</label>
+    <input type="text" id="scammer" name="scammer" required autocomplete="off">
 
-  <h2>Share a story for this section</h2>
-  <p>Use the <a href="share-your-story.html">share your story form</a>, and pick "Someone else" at the top.</p>
-  <p>You can also <a href="https://www.scamwatch.gov.au/report-a-scam">report a scam to Scamwatch</a> at any time.</p>
+    <label for="story2">Your story</label>
+    <textarea id="story2" name="text" rows="8" required placeholder="What happened? When? What did you lose?"></textarea>
 
+    <label for="when2">When did it happen? (month and year is enough)</label>
+    <input type="text" id="when2" name="whenText" autocomplete="off">
+
+    <label for="photo2">Add a photo or screenshot (optional)</label>
+    <input type="file" id="photo2" name="photo" accept="image/*">
+    <p class="small">Please cover phone numbers, addresses, and bank details in your photo before you add it.</p>
+
+    <p>
+      <input type="checkbox" id="anonymous2" name="anonymous">
+      <label class="check" for="anonymous2">Keep me anonymous: do not show my name</label>
+    </p>
+
+    <label for="display-name2">Name to show (leave empty if you picked anonymous)</label>
+    <input type="text" id="display-name2" name="name" autocomplete="name">
+
+    <p class="hp" aria-hidden="true">
+      <label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </p>
+
+    <p>
+      <input type="checkbox" id="truth2" name="truth" required>
+      <label class="check" for="truth2">This is my own experience, told as honestly as I can.</label>
+    </p>
+
+    <button type="submit">Put my story up</button>
+    <p class="form-note" aria-live="polite"></p>
+  </form>
+
+  <section class="wall" data-wall="other">
+    <h2>Stories shared about other Aussie scammers</h2>
+    <p>These stories were written by readers and went up as they were written.</p>
+    <div class="wall-list"></div>
+  </section>
   <p class="filed">Filed under: #AussieScammers</p>
 </main>
 
@@ -56,14 +95,14 @@
     </ul>
 
     <h2>The stories</h2>
-        <ul class="side-list">
-      <li><a href="case-1.html">Story 1 — The pay that stopped — Ilse's Airbnb and baby-care work</a></li>
-      <li><a href="case-2.html">Story 2 — The bank card in Norway — a fraud report from 2020</a></li>
-      <li><a href="case-3.html">Story 3 — The mattress that was never paid for — a seller's story from Mexico</a></li>
-      <li><a href="case-4.html">Story 4 — Cancelled hours before arrival — a guest's Airbnb stay</a></li>
-      <li><a href="case-5.html">Story 5 — The rent, the receipt and the locksmith day — an apartment report</a></li>
-      <li><a href="case-6.html">Story 6 — A puppy, a payment that failed — a breeder's story</a></li>
-      <li><a href="case-7.html">Story 7 — The deposit that never came back — an Airbnb guest's story</a></li>
+            <ul class="side-list">
+      <li><a href="case-1.html">Story 1: The pay that stopped: Ilse's Airbnb and baby care work</a></li>
+      <li><a href="case-2.html">Story 2: The bank card in Norway: a fraud report from 2020</a></li>
+      <li><a href="case-3.html">Story 3: The mattress that was never paid for: a seller's story from Mexico</a></li>
+      <li><a href="case-4.html">Story 4: Cancelled hours before arrival: a guest's Airbnb stay</a></li>
+      <li><a href="case-5.html">Story 5: The rent, the receipt and the locksmith day: an apartment report</a></li>
+      <li><a href="case-6.html">Story 6: A puppy, a payment that failed: a breeder's story</a></li>
+      <li><a href="case-7.html">Story 7: The deposit that never came back: an Airbnb guest's story</a></li>
     </ul>
 
         <h2>Known names</h2>
@@ -83,7 +122,7 @@
     <p><a href="names.html">All the names and profiles</a></p>
 
     <h2>About this blog</h2>
-    <p>An anonymous blog collecting stories people in Australia have shared, so the next person can check first. Stories are personal reports, not court findings.</p>
+    <p>An anonymous blog collecting the stories people have shared about Valeria and Joshua Hackett, so the next person can check first.</p>
 
     <h2>Need help?</h2>
     <ul class="side-list">
@@ -97,9 +136,10 @@
 
 <footer class="site">
   <div class="wrap">
-    <p class="small">An anonymous blog. Stories here are personal reports, not court findings. If a story is about you, you can answer it on the <a href="right-of-reply.html">right of reply</a> page.</p>
+    <p class="small">An anonymous blog, written to warn people. If a story is about you, you can answer it on the <a href="right-of-reply.html">right of reply</a> page.</p>
   </div>
 </footer>
 <script src="site.js" defer></script>
+<script src="wall.js" defer></script>
 </body>
 </html>
