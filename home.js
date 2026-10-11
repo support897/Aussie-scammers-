@@ -1,4 +1,4 @@
-// Home page extras: the counting numbers and the red flag game.
+// Home page extras: the counting numbers and the View more story breaks.
 (function () {
   "use strict";
 
