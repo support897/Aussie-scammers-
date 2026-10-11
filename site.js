@@ -105,3 +105,40 @@
       try { window.localStorage.setItem("sideClosed", closed ? "1" : "0"); } catch (e) {}
     });
   }
+
+  /* Share banner: the close button hides it on this device */
+  var banner = document.getElementById("shareBanner");
+  if (banner) {
+    try {
+      if (window.localStorage.getItem("bannerClosed") === "1") {
+        banner.style.display = "none";
+      }
+    } catch (e) {}
+    var bannerClose = document.getElementById("bannerClose");
+    if (bannerClose) {
+      bannerClose.addEventListener("click", function () {
+        banner.style.display = "none";
+        try { window.localStorage.setItem("bannerClosed", "1"); } catch (e) {}
+      });
+    }
+  }
+
+  /* Home page pop up: a kind invitation to share, shown once per device */
+  var pop = document.getElementById("sharePop");
+  if (pop) {
+    var popSeen = false;
+    try { popSeen = window.localStorage.getItem("sharePopSeen") === "1"; } catch (e) {}
+    if (!popSeen) {
+      setTimeout(function () { pop.classList.add("open"); }, 1200);
+    }
+    function closePop() {
+      pop.classList.remove("open");
+      try { window.localStorage.setItem("sharePopSeen", "1"); } catch (e) {}
+    }
+    var popClose = document.getElementById("sharePopClose");
+    if (popClose) popClose.addEventListener("click", closePop);
+    pop.addEventListener("click", function (e) { if (e.target === pop) closePop(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && pop.classList.contains("open")) closePop();
+    });
+  }
