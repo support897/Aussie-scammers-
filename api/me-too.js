@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     if (!STORIES.includes(body.story)) return res.status(400).json({ error: 'Unknown story.' });
     const counts = await readCounts();
     counts[body.story] = (counts[body.story] || 0) + 1;
-    await put(FILE, JSON.stringify(counts), { access: 'private', contentType: 'application/json', addRandomSuffix: false, cacheControlMaxAge: 0 });
+    await put(FILE, JSON.stringify(counts), { access: 'private', contentType: 'application/json', addRandomSuffix: false, allowOverwrite: true, cacheControlMaxAge: 0 });
     return res.status(200).json({ ok: true, count: counts[body.story] });
   }
   return res.status(405).json({ error: 'Method not allowed.' });
