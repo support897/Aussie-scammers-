@@ -209,3 +209,84 @@ footer.site .small{max-width:40rem}
 .menu-toggle:hover{background:var(--peach-tint)}
 body.side-closed .sidebar{display:none}
 body.side-closed main{margin-left:auto;margin-right:auto}
+
+/* Share banner: a kind invitation under the header, on every page */
+.share-banner{
+  background:var(--peach-tint);border-bottom:1px solid var(--line);
+}
+.share-banner .wrap{
+  display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;
+  padding-top:.65rem;padding-bottom:.65rem;
+}
+.share-banner p{margin:0;flex:1 1 16rem}
+.share-banner .banner-link{
+  font-weight:bold;white-space:nowrap;
+}
+.share-banner .banner-alt{font-size:.92rem}
+.share-banner button.banner-close{
+  margin:0;padding:.2rem .55rem;border-radius:8px;font-size:.95rem;line-height:1.3;
+}
+
+/* Home pop up: a gentle card in the middle of the screen, shown once */
+.share-pop{
+  position:fixed;inset:0;z-index:210;display:none;
+  background:rgba(24,17,12,.45);
+  align-items:center;justify-content:center;padding:1rem;
+}
+.share-pop.open{display:flex}
+.share-pop .pop-card{
+  background:#fff;max-width:26rem;width:100%;
+  border:1px solid var(--line);border-top:4px solid var(--peach);
+  padding:1.3rem 1.3rem 1.1rem;
+}
+.share-pop h2{margin-top:0}
+.share-pop .pop-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.9rem}
+.share-pop .pop-actions a{
+  border:1px solid var(--peach);padding:.55rem 1rem;text-decoration:none;font-weight:bold;
+}
+.share-pop .pop-actions a:hover{background:var(--peach-tint)}
+.share-pop button{
+  margin-top:.9rem;padding:.35rem .8rem;border-radius:8px;
+}
+
+/* Live story walls */
+.wall{margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem}
+.wall-story{
+  border-left:3px solid var(--peach);
+  padding:.2rem 0 .2rem .9rem;margin:1.2rem 0;
+}
+.wall-head{margin:.1rem 0;color:var(--muted);font-size:.95rem}
+.wall-head strong{color:var(--ink)}
+.wall-scammer{margin:.15rem 0;font-weight:bold}
+.wall-when{margin:.15rem 0;color:var(--muted);font-size:.95rem}
+.wall-text p{margin:.45rem 0}
+.wall-empty{color:var(--muted)}
+.form-note{margin-top:.6rem;color:var(--peach-dark);font-weight:bold}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* Home page: one long page, big sections with big titles */
+.home-section{margin-top:3.2rem;padding-top:2.4rem;border-top:1px solid var(--line)}
+.home-section>h2{font-size:clamp(2rem,3.4vw + 1.2rem,2.8rem);margin:0 0 .8rem}
+.stats{display:flex;flex-wrap:wrap;gap:1.4rem 2.4rem;margin:1.4rem 0 .4rem}
+.stat{min-width:8.5rem}
+.stat .num{display:block;font-size:2.3rem;font-weight:bold;color:var(--peach);line-height:1.1}
+.stat .lab{color:var(--muted);font-size:.95rem}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1rem 0}
+.gallery .photo{margin:0}
+.cta-link{
+  display:inline-block;border:1px solid var(--peach);
+  padding:.6rem 1.1rem;font-weight:bold;text-decoration:none;
+}
+.cta-link:hover{background:var(--peach-tint)}
+.quiz-q{margin:1.5rem 0}
+.quiz-q>p{font-weight:bold}
+.quiz-opts{display:grid;gap:.5rem}
+.quiz-opt{
+  text-align:left;margin:0;padding:.6rem .8rem;min-height:44px;
+  border:1px solid var(--field);background:#fff;font:inherit;cursor:pointer;
+}
+.quiz-opt.right{border-color:var(--peach);background:var(--peach-tint);font-weight:bold}
+.quiz-opt.wrong{opacity:.55;text-decoration:line-through}
+.quiz-why{display:none;margin:.55rem 0 0;color:var(--peach-dark)}
+.quiz-why.show{display:block}
+#quizScore{font-weight:bold}
