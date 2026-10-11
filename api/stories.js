@@ -3,7 +3,7 @@
 // GET  /api/stories?category=hackett|other   -> list, newest first
 // POST /api/stories  {category, name, anonymous, scammer, whenText, text, imageDataUrl}
 // All text is stored as plain text and escaped by the browser when shown.
-import { put, list } from '@vercel/blob';
+import { put, get } from '@vercel/blob';
 
 const FILES = { hackett: 'walls/stories-hackett.json', other: 'walls/stories-other.json' };
 const MAX_TEXT = 4000;
@@ -14,12 +14,9 @@ const MAX_IMAGE_BYTES = 2600000;
 
 async function readWall(file) {
   try {
-    const { blobs } = await list({ prefix: file, limit: 1 });
-    const hit = blobs.find(b => b.pathname === file);
-    if (!hit) return [];
-    const r = await fetch(hit.url, { headers: { Authorization: 'Bearer ' + process.env.BLOB_READ_WRITE_TOKEN } });
-    if (!r.ok) return [];
-    const data = await r.json();
+    const res = await get(file, { access: 'private', useCache: false });
+    if (!res) return [];
+    const data = JSON.parse(await new Response(res.stream).text());
     return Array.isArray(data) ? data : [];
   } catch (e) {
     return [];
