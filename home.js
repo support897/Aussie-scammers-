@@ -52,35 +52,6 @@
   }
   maybeCount();
 
-  // The red flag game
-  var quiz = document.getElementById('quiz');
-  if (quiz) {
-    var total = quiz.querySelectorAll('.quiz-q').length;
-    var answered = 0;
-    var score = 0;
-    var scoreLine = document.getElementById('quizScore');
-    var finalLine = document.getElementById('quizFinal');
-    quiz.querySelectorAll('.quiz-q').forEach(function (q) {
-      var why = q.querySelector('.quiz-why');
-      q.querySelectorAll('.quiz-opt').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          if (q.getAttribute('data-done')) return;
-          q.setAttribute('data-done', '1');
-          var right = btn.getAttribute('data-right') === '1';
-          btn.classList.add(right ? 'right' : 'wrong');
-          if (right) score++;
-          answered++;
-          q.querySelectorAll('.quiz-opt').forEach(function (b) { b.disabled = true; });
-          if (why) why.classList.add('show');
-          if (scoreLine) scoreLine.textContent = 'You spotted ' + score + ' of ' + total + ' red flags so far.';
-          if (answered === total && finalLine) {
-            finalLine.hidden = false;
-            finalLine.querySelector('strong').textContent = 'You spotted ' + score + ' of ' + total + ' red flags.';
-          }
-        });
-      });
-    });
-  }
 })();
 
   /* View more: the second half of each home story opens in place */
