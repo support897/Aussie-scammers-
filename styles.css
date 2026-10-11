@@ -294,3 +294,28 @@ body.side-closed main{margin-left:auto;margin-right:auto}
 }
 .more-btn:hover{background:var(--peach-tint)}
 .more-wrap[hidden]{display:none}
+
+/* Same happened to me */
+.metoo-row{margin:1.1rem 0 .2rem}
+.metoo-btn{
+  font:inherit;cursor:pointer;background:#fff;color:var(--peach-dark);
+  border:1px solid var(--peach);border-radius:8px;
+  padding:.5rem 1rem;min-height:44px;
+}
+.metoo-btn:hover{background:var(--peach-tint)}
+.metoo-btn:disabled{opacity:.75;cursor:default;background:var(--peach-tint)}
+
+/* Check a name + tick what happened (home tools) */
+.tool{margin:0 0 2.2rem}
+.tool h2{font-size:clamp(1.8rem,3vw + 1rem,2.4rem);margin:.2rem 0 .6rem}
+.tool input[type="text"]{
+  width:100%;font:inherit;font-size:1.15rem;
+  padding:.75rem .8rem;min-height:52px;
+}
+.tool-answer{margin:.8rem 0 0}
+.tool-answer .hit{border-left:3px solid var(--peach);padding:.2rem 0 .2rem .9rem;margin:.7rem 0}
+.tick-list{list-style:none;padding-left:0}
+.tick-list li{margin:.6rem 0}
+.tick-list label{display:flex;gap:.6rem;align-items:flex-start;cursor:pointer}
+.tick-list input{width:1.3rem;height:1.3rem;margin-top:.15rem;flex:0 0 auto}
+.tick-answer{border-left:3px solid var(--peach);padding:.2rem 0 .2rem .9rem;margin-top:1rem}
