@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aussie-scammers.vercel.app/sitemap.xml
+Sitemap: https://hackettfamilyscam.com/sitemap.xml
